@@ -7,8 +7,17 @@ const bodyParser = require('body-parser');
 
 const routes = require('./routes/index');
 const users = require('./routes/users');
+// const celebrities = require('./routes/celebrities');
+
 
 const app = express();
+
+// // set up database
+// mongoose.Promise = Promise;
+// mongoose.connect('mongodb://localhost/celebrityDB', {
+//   keepAlive: true,
+//   reconnectTries: Number.MAX_VALUE
+// });
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -23,6 +32,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 app.use('/users', users);
+// app.use("/celebrities", celebrities);
 
 /// catch 404 and forwarding to error handler
 app.use(function(req, res, next) {
